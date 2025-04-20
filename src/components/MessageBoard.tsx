@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAccount, useContractRead, useContractWrite } from "wagmi";
+import { useAccount, useContractWrite } from "wagmi";
 import ReactMarkdown from "react-markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -49,7 +49,6 @@ export function MessageBoard() {
 	const [nickname, setNickname] = useState("");
 	const [content, setContent] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [logs, setLogs] = useState<Log[]>([]);
 	const [decodedLogs, setDecodedLogs] = useState<DecodedLog[]>([]);
 	const [showPreview, setShowPreview] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -75,7 +74,6 @@ export function MessageBoard() {
 					blockNumber: log.blockNumber as `0x${string}`,
 					transactionHash: log.transactionHash as `0x${string}`,
 				}));
-				setLogs(typedLogs);
 				// 解析日志数据
 				const decoded = typedLogs
 					.map((log: Log) => {
