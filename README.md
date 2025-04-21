@@ -27,4 +27,4 @@
 └── 📜 vite.config.ts
 ```
 
-使用指南：施工中……
+[部署指南](/DEPLOY_GUIDE.md)
